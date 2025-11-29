@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: oracle-searxng
+    env: docker
+    dockerfilePath: ./Dockerfile.render
+    plan: free
+    region: oregon
+    envVars:
+      - key: SEARXNG_BASE_URL
+        value: https://oracle-searxng.onrender.com
+      - key: PORT
+        value: 8080

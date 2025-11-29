@@ -1,0 +1,182 @@
+# Custom Oracle Research Engine Configuration
+# Streamlined for academic research and development
+
+engines:
+  # ============================================
+  # GENERAL SEARCH ENGINES
+  # ============================================
+  - name: google
+    engine: google
+    shortcut: go
+    categories: [general]
+
+  - name: bing
+    engine: bing
+    shortcut: bi
+    categories: [general]
+
+  - name: brave
+    engine: brave
+    shortcut: br
+    categories: [general]
+
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: dd
+    categories: [general]
+
+  - name: qwant
+    engine: qwant
+    shortcut: qw
+    categories: [general]
+
+  - name: startpage
+    engine: startpage
+    shortcut: sp
+    categories: [general]
+
+  # ============================================
+  # ACADEMIC & SCIENTIFIC SEARCH
+  # ============================================
+  - name: google scholar
+    engine: google_scholar
+    shortcut: gs
+    categories: [science]
+    disabled: false
+
+  - name: semantic scholar
+    engine: semantic_scholar
+    shortcut: ss
+    categories: [science]
+    disabled: false
+
+  - name: pubmed
+    engine: pubmed
+    shortcut: pm
+    categories: [science]
+    disabled: false
+
+  - name: arxiv
+    engine: arxiv
+    shortcut: arx
+    categories: [science]
+    disabled: false
+
+  - name: core
+    engine: core
+    shortcut: cor
+    categories: [science]
+    api_key: ""  # Add your CORE API key if you have one
+    inactive: false
+
+  - name: base
+    engine: base
+    shortcut: bas
+    categories: [science]
+    disabled: false
+
+  - name: crossref
+    engine: crossref
+    shortcut: cr
+    categories: [science]
+    timeout: 30
+    disabled: false
+
+  - name: springer
+    engine: springer
+    shortcut: spr
+    categories: [science]
+    disabled: false
+
+  - name: openalex
+    engine: openalex
+    shortcut: oalex
+    categories: [science]
+    disabled: false
+
+  # ============================================
+  # CODE & DEVELOPMENT
+  # ============================================
+  - name: github
+    engine: github
+    shortcut: gh
+    categories: [it]
+
+  - name: gitlab
+    engine: gitlab
+    shortcut: gl
+    base_url: https://gitlab.com
+    categories: [it]
+
+  - name: stackexchange
+    engine: stackexchange
+    shortcut: se
+    categories: [it]
+
+  - name: searchcode code
+    engine: searchcode_code
+    shortcut: scc
+    categories: [it]
+    disabled: false
+
+  # ============================================
+  # NEWS & INFORMATION
+  # ============================================
+  - name: wikipedia
+    engine: wikipedia
+    shortcut: wp
+    categories: [general]
+    display_type: ["infobox"]
+
+  - name: wikidata
+    engine: wikidata
+    shortcut: wd
+    categories: [general]
+    timeout: 3.0
+    weight: 2
+    display_type: ["infobox"]
+
+  - name: reddit
+    engine: reddit
+    shortcut: re
+    categories: [social media]
+
+  - name: hackernews
+    engine: hackernews
+    shortcut: hn
+    categories: [it]
+    disabled: false
+
+  # ============================================
+  # UTILITIES
+  # ============================================
+  - name: currency
+    engine: currency_convert
+    shortcut: cu
+    categories: [general]
+
+  # ============================================
+  # IMAGES
+  # ============================================
+  - name: google images
+    engine: google_images
+    shortcut: goi
+    categories: [images]
+
+  - name: bing images
+    engine: bing_images
+    shortcut: bii
+    categories: [images]
+
+  # ============================================  
+  # VIDEOS
+  # ============================================
+  - name: google videos
+    engine: google_videos
+    shortcut: gov
+    categories: [videos]
+
+  - name: bing videos
+    engine: bing_videos
+    shortcut: biv
+    categories: [videos]

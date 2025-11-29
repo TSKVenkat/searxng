@@ -204,7 +204,7 @@ def get_result_templates(templates_path):
     for directory, _, files in os.walk(templates_path):
         if directory.endswith('result_templates'):
             for filename in files:
-                f = os.path.join(directory[templates_path_length:], filename)
+                f = os.path.join(directory[templates_path_length:], filename).replace('\\', '/')
                 result_templates.add(f)
     return result_templates
 

@@ -1,0 +1,16 @@
+FROM searxng/searxng:latest
+
+# Switch to root to copy files
+USER root
+
+# Copy your custom settings into the container
+COPY searx/settings.yml /etc/searxng/settings.yml
+
+# Ensure permissions are correct
+RUN chown -R searxng:searxng /etc/searxng
+
+# Switch back to searxng user
+USER searxng
+
+# Expose port 8080 (Render expects 8080 by default usually, or we configure it)
+EXPOSE 8080
