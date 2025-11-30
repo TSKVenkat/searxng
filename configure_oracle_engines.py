@@ -10,25 +10,30 @@ from pathlib import Path
 
 # Engines to ENABLE for Oracle
 ENABLED_ENGINES = {
-    # General Search
-    'google', 'bing', 'brave', 'duckduckgo', 'qwant', 'startpage',
+    # General Web (high quality, unblocked)
+    'google', 'bing', 'brave', 'duckduckgo', 'qwant', 'mojeek', 'marginalia',
     
-    # Academic & Scientific
-    'google scholar', 'semantic scholar', 'pubmed', 'arxiv', 'core', 
-    'base', 'crossref', 'springer', 'openalex',
+    # Academic & Scientific Papers
+    'google scholar', 'semantic scholar', 'pubmed', 'arxiv', 'crossref', 
+    'core', 'base', 'zenodo', 'openalex',
     
-    # Code & Dev
-    'github', 'gitlab', 'stackexchange', 'searchcode code',
+    # Finance & SEC Filings
+    'sec edgar', 'yahoo finance', 'alpha vantage',
     
-    # News & Info
-    'wikipedia', 'wikidata', 'reddit', 'hackernews',
+    # Code & Development
+    'github', 'gitlab', 'sourceforge',
     
-    # Utilities
-    'currency',
+    # Social, Discussions, Opinions
+    'reddit', 'hacker news', 'twitter', 'mastodon', 'lobsters',
     
-    # Media
-    'google images', 'bing images', 'google videos', 'bing videos',
-    'bing news'
+    # News & Media
+    'wikipedia', 'bbc news', 'reuters','reddit',
+    
+    # Extra Good Ones
+    'currency', 'ina', 'inria', 'openverse', 'unsplash',
+    
+    # Utilities (keep wikidata for structured data)
+    'wikidata'
 }
 
 def configure_engines(settings_file='searx/settings.yml'):

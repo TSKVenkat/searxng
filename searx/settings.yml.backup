@@ -29,13 +29,16 @@ search:
     recaptcha_SearxEngineCaptcha: 604800
   formats:
   - html
+  - json
+  - csv
+  - rss
 server:
   port: 8888
-  bind_address: 127.0.0.1
+  bind_address: 0.0.0.0
   base_url: false
   limiter: false
   public_instance: false
-  secret_key: ultrasecretkey
+  secret_key: 588b46446b887a51ac4e7cfcbd0c2d82f9c2b101b10328ec6e7f94401e00a35b
   image_proxy: false
   http_protocol_version: '1.0'
   method: POST
@@ -44,6 +47,9 @@ server:
     X-Download-Options: noopen
     X-Robots-Tag: noindex, nofollow
     Referrer-Policy: no-referrer
+    Access-Control-Allow-Origin: '*'
+    Access-Control-Allow-Methods: GET, POST, OPTIONS
+    Access-Control-Allow-Headers: '*'
 valkey:
   url: false
 ui:
@@ -60,32 +66,13 @@ ui:
   hotkeys: default
   url_formatting: pretty
 outgoing:
-  request_timeout: 3.0
+  request_timeout: 30.0
   useragent_suffix: ''
   pool_connections: 100
   pool_maxsize: 20
-  enable_http2: true
-plugins:
-  searx.plugins.calculator.SXNGPlugin:
-    active: true
-  searx.plugins.hash_plugin.SXNGPlugin:
-    active: true
-  searx.plugins.self_info.SXNGPlugin:
-    active: true
-  searx.plugins.unit_converter.SXNGPlugin:
-    active: true
-  searx.plugins.ahmia_filter.SXNGPlugin:
-    active: true
-  searx.plugins.hostnames.SXNGPlugin:
-    active: true
-  searx.plugins.time_zone.SXNGPlugin:
-    active: true
-  searx.plugins.oa_doi_rewrite.SXNGPlugin:
-    active: false
-  searx.plugins.tor_check.SXNGPlugin:
-    active: false
-  searx.plugins.tracker_url_remover.SXNGPlugin:
-    active: true
+  enable_http2: false
+  max_request_timeout: 45.0
+plugins: {}
 checker:
   off_when_debug: true
   additional_tests:
@@ -307,15 +294,15 @@ engines:
 - name: bing images
   engine: bing_images
   shortcut: bii
-  disabled: false
+  disabled: true
 - name: bing news
   engine: bing_news
   shortcut: bin
-  disabled: false
+  disabled: true
 - name: bing videos
   engine: bing_videos
   shortcut: biv
-  disabled: false
+  disabled: true
 - name: bitchute
   engine: bitchute
   shortcut: bit
@@ -352,7 +339,7 @@ engines:
   engine: openverse
   categories: images
   shortcut: opv
-  disabled: true
+  disabled: false
 - name: media.ccc.de
   engine: ccc_media
   shortcut: c3tv
@@ -694,7 +681,7 @@ engines:
 - name: google images
   engine: google_images
   shortcut: goi
-  disabled: false
+  disabled: true
 - name: google news
   engine: google_news
   shortcut: gon
@@ -702,7 +689,7 @@ engines:
 - name: google videos
   engine: google_videos
   shortcut: gov
-  disabled: false
+  disabled: true
 - name: google scholar
   engine: google_scholar
   shortcut: gos
@@ -752,7 +739,7 @@ engines:
 - name: hackernews
   engine: hackernews
   shortcut: hn
-  disabled: false
+  disabled: true
 - name: hex
   engine: hex
   shortcut: hex
@@ -815,7 +802,7 @@ engines:
   engine: ina
   shortcut: in
   timeout: 6.0
-  disabled: true
+  disabled: false
 - name: ipernity
   engine: ipernity
   shortcut: ip
@@ -922,8 +909,8 @@ engines:
 - name: marginalia
   engine: marginalia
   shortcut: mar
-  disabled: true
-  inactive: true
+  disabled: false
+  inactive: false
 - name: mastodon users
   engine: mastodon
   mastodon_type: accounts
@@ -1317,7 +1304,7 @@ engines:
 - name: reuters
   engine: reuters
   shortcut: reu
-  disabled: true
+  disabled: false
 - name: right dao
   engine: xpath
   paging: true
@@ -1431,7 +1418,7 @@ engines:
 - name: searchcode code
   engine: searchcode_code
   shortcut: scc
-  disabled: false
+  disabled: true
   inactive: false
 - name: semantic scholar
   engine: semantic_scholar
@@ -1453,7 +1440,7 @@ engines:
   - web
   additional_tests:
     rosebud: *id002
-  disabled: false
+  disabled: true
 - name: startpage news
   engine: startpage
   startpage_categ: news
@@ -1519,7 +1506,7 @@ engines:
 - name: unsplash
   engine: unsplash
   shortcut: us
-  disabled: true
+  disabled: false
 - name: yandex
   engine: yandex
   categories: general
@@ -1745,7 +1732,7 @@ engines:
   categories:
   - general
   - web
-  disabled: true
+  disabled: false
 - name: mojeek images
   shortcut: mjkimg
   engine: mojeek

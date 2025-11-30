@@ -1,42 +1,54 @@
 # Custom Oracle Research Engine Configuration
-# Streamlined for academic research and development
+# User-specified high-quality search engines
 
 engines:
   # ============================================
-  # GENERAL SEARCH ENGINES
+  # GENERAL WEB (high quality, unblocked)
   # ============================================
   - name: google
     engine: google
-    shortcut: go
+    shortcut: g
     categories: [general]
+    disabled: false
 
   - name: bing
     engine: bing
-    shortcut: bi
+    shortcut: b
     categories: [general]
+    disabled: false
 
   - name: brave
     engine: brave
     shortcut: br
     categories: [general]
+    disabled: false
 
   - name: duckduckgo
     engine: duckduckgo
-    shortcut: dd
+    shortcut: ddg
     categories: [general]
+    disabled: false
 
   - name: qwant
     engine: qwant
     shortcut: qw
     categories: [general]
+    disabled: false
 
-  - name: startpage
-    engine: startpage
-    shortcut: sp
+  - name: mojeek
+    engine: mojeek
+    shortcut: mj
     categories: [general]
+    disabled: false
+
+  - name: marginalia
+    engine: marginalia
+    shortcut: mar
+    categories: [general]
+    disabled: false
 
   # ============================================
-  # ACADEMIC & SCIENTIFIC SEARCH
+  # ACADEMIC & SCIENTIFIC PAPERS
   # ============================================
   - name: google scholar
     engine: google_scholar
@@ -62,11 +74,18 @@ engines:
     categories: [science]
     disabled: false
 
+  - name: crossref
+    engine: crossref
+    shortcut: cr
+    categories: [science]
+    timeout: 30
+    disabled: false
+
   - name: core
     engine: core
     shortcut: cor
     categories: [science]
-    api_key: ""  # Add your CORE API key if you have one
+    api_key: ""
     inactive: false
 
   - name: base
@@ -75,24 +94,44 @@ engines:
     categories: [science]
     disabled: false
 
-  - name: crossref
-    engine: crossref
-    shortcut: cr
-    categories: [science]
-    timeout: 30
-    disabled: false
-
-  - name: springer
-    engine: springer
-    shortcut: spr
+  - name: zenodo
+    engine: zenodo
+    shortcut: zen
     categories: [science]
     disabled: false
 
   - name: openalex
     engine: openalex
-    shortcut: oalex
+    shortcut: oa
     categories: [science]
     disabled: false
+
+  # ============================================
+  # FINANCE & SEC FILINGS
+  # ============================================
+  - name: sec edgar
+    engine: xpath
+    shortcut: sec
+    search_url: https://www.sec.gov/edgar/search/#/q={query}
+    categories: [general]
+    disabled: false
+    results_xpath: //div[@class="results"]//tr
+    url_xpath: .//a/@href
+    title_xpath: .//a
+    content_xpath: .//td
+
+  - name: yahoo finance
+    engine: yahoo_finance
+    shortcut: yf
+    categories: [general]
+    disabled: false
+
+  - name: alpha vantage
+    engine: json_engine
+    shortcut: av
+    url: https://www.alphavantage.co/query
+    categories: [general]
+    disabled: true  # Requires API key
 
   # ============================================
   # CODE & DEVELOPMENT
@@ -101,82 +140,105 @@ engines:
     engine: github
     shortcut: gh
     categories: [it]
+    disabled: false
 
   - name: gitlab
     engine: gitlab
     shortcut: gl
     base_url: https://gitlab.com
     categories: [it]
+    disabled: false
 
-  - name: stackexchange
-    engine: stackexchange
-    shortcut: se
-    categories: [it]
-
-  - name: searchcode code
-    engine: searchcode_code
-    shortcut: scc
+  - name: sourceforge
+    engine: sourceforge
+    shortcut: sf
     categories: [it]
     disabled: false
 
   # ============================================
-  # NEWS & INFORMATION
+  # SOCIAL, DISCUSSIONS, OPINIONS
+  # ============================================
+  - name: reddit
+    engine: reddit
+    shortcut: re
+    categories: [social media]
+    disabled: false
+
+  - name: hacker news
+    engine: hackernews
+    shortcut: hn
+    categories: [it]
+    disabled: false
+
+  - name: twitter
+    engine: twitter
+    shortcut: tw
+    categories: [social media]
+    disabled: false
+
+  - name: mastodon
+    engine: mastodon
+    shortcut: ma
+    categories: [social media]
+    disabled: false
+
+  - name: lobsters
+    engine: lobsters
+    shortcut: lo
+    categories: [it]
+    disabled: false
+
+  # ============================================
+  # NEWS & MEDIA
   # ============================================
   - name: wikipedia
     engine: wikipedia
     shortcut: wp
     categories: [general]
     display_type: ["infobox"]
+    disabled: false
 
-  - name: wikidata
-    engine: wikidata
-    shortcut: wd
-    categories: [general]
-    timeout: 3.0
-    weight: 2
-    display_type: ["infobox"]
+  - name: bbc news
+    engine: bbc_news
+    shortcut: bbc
+    categories: [news]
+    disabled: false
 
-  - name: reddit
-    engine: reddit
-    shortcut: re
-    categories: [social media]
-
-  - name: hackernews
-    engine: hackernews
-    shortcut: hn
-    categories: [it]
+  - name: reuters
+    engine: reuters
+    shortcut: reu
+    categories: [news]
     disabled: false
 
   # ============================================
-  # UTILITIES
+  # EXTRA GOOD ONES
   # ============================================
   - name: currency
     engine: currency_convert
-    shortcut: cu
+    shortcut: cur
     categories: [general]
+    disabled: false
 
-  # ============================================
-  # IMAGES
-  # ============================================
-  - name: google images
-    engine: google_images
-    shortcut: goi
-    categories: [images]
-
-  - name: bing images
-    engine: bing_images
-    shortcut: bii
-    categories: [images]
-
-  # ============================================  
-  # VIDEOS
-  # ============================================
-  - name: google videos
-    engine: google_videos
-    shortcut: gov
+  - name: ina
+    engine: ina
+    shortcut: ina
     categories: [videos]
+    disabled: false
 
-  - name: bing videos
-    engine: bing_videos
-    shortcut: biv
-    categories: [videos]
+  - name: inria
+    engine: inria
+    shortcut: inr
+    categories: [science]
+    disabled: false
+
+  - name: openverse
+    engine: openverse
+    shortcut: ov
+    categories: [images]
+    disabled: false
+
+  - name: unsplash
+    engine: unsplash
+    shortcut: us
+    categories: [images]
+    disabled: false
